@@ -14,4 +14,18 @@ querySelector(All) is the most popular because it is flexible (you can use any C
 getElementById is the fastest for performance.
 
 
+2. How do you create and insert a new element into the DOM?
 
+
+
+ans:2.To create and insert a new element into the DOM using JavaScript, you follow a three-step process:
+Create the element using document.createElement().
+Configure the element (add content, attributes, classes, etc.)
+Insert the element into an existing part of the DOM using an insertion method like appendChild() or append(). 
+
+
+3. What is Event Bubbling? And how does it work?
+
+
+
+ans:3.Event bubbling is a JavaScript DOM event propagation mechanism where an event triggered on a child element (target) propagates upward, triggering handlers on its parent and ancestor elements in sequence.
