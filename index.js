@@ -117,7 +117,7 @@ maincontiner.addEventListener('click',function(event){
         else if (event.target.classList.contains('rejected-btn')){
 
     const parentnode= event.target.parentNode.parentNode 
-    console.log(parentnode);
+    
 
     const mobileCorp= parentnode.querySelector(`.mobile-corp`).innerText
     const mobileResct= parentnode.querySelector(`.mobile-resct`).innerText
