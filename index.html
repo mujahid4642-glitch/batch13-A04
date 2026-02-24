@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B13-A4</title>
+
+    <!-- tailwind css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="w-[80%] mx-auto space-y-5">
+      <h1 class="text-3xl font-bold">Job Application Tracker</h1>
+      <div class="grid grid-cols-3">
+        <div>
+          <p>total</p>
+          <p id="total-count" class="text-2xl">0</p>
+        </div>
+        <div>
+          <p>Interview</p>
+          <p id="interview-count" class="text-green-500 text-2xl">0</p>
+        </div>
+        <div>
+          <p>Rejected</p>
+          <p id="rejected-count" class="text-red-700 text-2xl">0</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="w-[80%] mx-auto mt-20">
+      <div class="flex justify-between">
+        <p class="text-2xl font-bold">Available Jobs</p>
+        <p class="font-medium">8 jobs</p>
+      </div>
+
+      <div class="mt-5">
+        <button
+          onclick="toggles('all-filter-btn')"
+          id="all-filter-btn"
+          class="font-medium px-5 py-2 gap-2 bg-blue-500 text-white rounded-2xl"
+        >
+          all
+        </button>
+        <button
+          onclick="toggles('interview-filter-btn')"
+          id="interview-filter-btn"
+          class="font-medium px-5 py-2 rounded-2xl gap-2"
+        >
+          Interview
+        </button>
+        <button
+          onclick="toggles('rejected-filter-btn')"
+          id="rejected-filter-btn"
+          class="font-medium px-5 py-2 rounded-2xl gap-2"
+        >
+          Rejected
+        </button>
+      </div>
+      <!-- filter card -->
+      <section id="filter-section" class="hidden"></section>
+
+      <section id="allcard" class="space-y-5">
+
+        <section id="Mobilecard" class="">
+          <!-- card 1 -->
+          <div class="card flex justify-between p-5">
+            <!-- main card 1 -->
+            <div class="space-y-6">
+              <!-- part 1 -->
+              <div>
+                <p class="mobile-corp font-extralight">Mobile First Corp</p>
+                <p class="mobile-resct font-extralight">
+                  React Native Developer
+                </p>
+              </div>
+              <!-- part 2 -->
+              <div class="flex">
+                <p class="remotelement font-extralight">Remote</p>
+                <p class="fullelement font-extralight">•Full-time</p>
+                <p class="numberelementA font-extralight">•$130,000</p>
+                <p class="numberelementB font-extralight">-$175,000</p>
+              </div>
+              <!-- part 3 -->
+              <p class="notapplied font-medium">Not Applied</p>
+              <p class="font-extralight">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+
+              <div class="">
+                <button class="interview-btn text-green-400 py-3 px-3 gap-2">
+                  interview
+                </button>
+                <button
+                  class="rejected-btn border-red-400 text-red-400 py-3 px-3"
+                >
+                  Rejected
+                </button>
+              </div>
+            </div>
+            <!-- main card 2 -->
+            <div>
+              <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <section id="WebFlowcard" class="border">
+          <!-- card 2 -->
+          <div class="card flex justify-between p-5">
+            <!-- main card 1 -->
+            <div class="space-y-6">
+              <!-- part 1 -->
+              <div>
+                <p class="mobile-corp font-extralight">WebFlow Agency</p>
+                <p class="mobile-resct font-extralight">
+                  React Native Developer
+                </p>
+              </div>
+              <!-- part 2 -->
+              <div class="flex">
+                <p class="remotelement font-extralight">Remote</p>
+                <p class="fullelement font-extralight">•Full-time</p>
+                <p class="numberelementA font-extralight">•$130,000</p>
+                <p class="numberelementB font-extralight">-$175,000</p>
+              </div>
+              <!-- part 3 -->
+              <p class="notapplied font-medium">Not Applied</p>
+              <p class="font-extralight">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+
+              <div class="">
+                <button class="interview-btn text-green-400 py-3 px-3 gap-2">
+                  interview
+                </button>
+                <button
+                  class="rejected-btn border-red-400 text-red-400 py-3 px-3"
+                >
+                  Rejected
+                </button>
+              </div>
+            </div>
+            <!-- main card 2 -->
+            <div>
+              <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <section id="DataVizcard" class="border">
+          <!-- card 3 -->
+          <div class="card flex justify-between p-5">
+            <!-- main card 1 -->
+            <div class="space-y-6">
+              <!-- part 1 -->
+              <div>
+                <p class="mobile-corp font-extralight">DataViz Solutions</p>
+                <p class="mobile-resct font-extralight">
+                  React Native Developer
+                </p>
+              </div>
+              <!-- part 2 -->
+              <div class="flex">
+                <p class="remotelement font-extralight">Remote</p>
+                <p class="fullelement font-extralight">•Full-time</p>
+                <p class="numberelementA font-extralight">•$130,000</p>
+                <p class="numberelementB font-extralight">-$175,000</p>
+              </div>
+              <!-- part 3 -->
+              <p class="notapplied font-medium">Not Applied</p>
+              <p class="font-extralight">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+
+              <div class="">
+                <button class="interview-btn text-green-400 py-3 px-3 gap-2">
+                  interview
+                </button>
+                <button
+                  class="rejected-btn border-red-400 text-red-400 py-3 px-3"
+                >
+                  Rejected
+                </button>
+              </div>
+            </div>
+            <!-- main card 2 -->
+            <div>
+              <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <section id="CloudFirstcard">
+          <!-- card 4 -->
+          <div class="card flex justify-between p-5">
+            <!-- main card 1 -->
+            <div class="space-y-6">
+              <!-- part 1 -->
+              <div>
+                <p class="mobile-corp font-extralight">CloudFirst Inc</p>
+                <p class="mobile-resct font-extralight">
+                  React Native Developer
+                </p>
+              </div>
+              <!-- part 2 -->
+              <div class="flex">
+                <p class="remotelement font-extralight">Remote</p>
+                <p class="fullelement font-extralight">•Full-time</p>
+                <p class="numberelementA font-extralight">•$130,000</p>
+                <p class="numberelementB font-extralight">-$175,000</p>
+              </div>
+              <!-- part 3 -->
+              <p class="notapplied font-medium">Not Applied</p>
+              <p class="font-extralight">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+
+              <div class="">
+                <button class="interview-btn text-green-400 py-3 px-3 gap-2">
+                  interview
+                </button>
+                <button
+                  class="rejected-btn border-red-400 text-red-400 py-3 px-3"
+                >
+                  Rejected
+                </button>
+              </div>
+            </div>
+            <!-- main card 2 -->
+            <div>
+              <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <section id="Innovationcard">
+          <!-- card 5 -->
+          <div class="card flex justify-between p-5">
+            <!-- main card 1 -->
+            <div class="space-y-6">
+              <!-- part 1 -->
+              <div>
+                <p class="mobile-corp font-extralight">Innovation Labs</p>
+                <p class="mobile-resct font-extralight">
+                  React Native Developer
+                </p>
+              </div>
+              <!-- part 2 -->
+              <div class="flex">
+                <p class="remotelement font-extralight">Remote</p>
+                <p class="fullelement font-extralight">•Full-time</p>
+                <p class="numberelementA font-extralight">•$130,000</p>
+                <p class="numberelementB font-extralight">-$175,000</p>
+              </div>
+              <!-- part 3 -->
+              <p class="notapplied font-medium">Not Applied</p>
+              <p class="font-extralight">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+
+              <div class="">
+                <button class="interview-btn text-green-400 py-3 px-3 gap-2">
+                  interview
+                </button>
+                <button
+                  class="rejected-btn border-red-400 text-red-400 py-3 px-3"
+                >
+                  Rejected
+                </button>
+              </div>
+            </div>
+            <!-- main card 2 -->
+            <div>
+              <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <section id="MegaCorpcard">
+          <!-- card 6 -->
+          <div class="card flex justify-between p-5">
+            <!-- main card 1 -->
+            <div class="space-y-6">
+              <!-- part 1 -->
+              <div>
+                <p class="mobile-corp font-extralight">MegaCorp Solutions</p>
+                <p class="mobile-resct font-extralight">
+                  React Native Developer
+                </p>
+              </div>
+              <!-- part 2 -->
+              <div class="flex">
+                <p class="remotelement font-extralight">Remote</p>
+                <p class="fullelement font-extralight">•Full-time</p>
+                <p class="numberelementA font-extralight">•$130,000</p>
+                <p class="numberelementB font-extralight">-$175,000</p>
+              </div>
+              <!-- part 3 -->
+              <p class="notapplied notapplied font-medium">Not Applied</p>
+              <p class="font-extralight">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+
+              <div class="">
+                <button class="interview-btn text-green-400 py-3 px-3 gap-2">
+                  interview
+                </button>
+                <button
+                  class="rejected-btn border-red-400 text-red-400 py-3 px-3"
+                >
+                  Rejected
+                </button>
+              </div>
+            </div>
+            <!-- main card 2 -->
+            <div>
+              <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <section id="Startcard">
+          <!-- card 7 -->
+          <div class="card flex justify-between p-5">
+            <!-- main card 1 -->
+            <div class="space-y-6">
+              <!-- part 1 -->
+              <div>
+                <p class="mobile-corp font-extralight">StartupXYZ</p>
+                <p class="mobile-resct font-extralight">
+                  React Native Developer
+                </p>
+              </div>
+              <!-- part 2 -->
+              <div class="flex">
+                <p class="remotelement font-extralight">Remote</p>
+                <p class="fullelement font-extralight">•Full-time</p>
+                <p class="numberelementA font-extralight">•$130,000</p>
+                <p class="numberelementB font-extralight">-$175,000</p>
+              </div>
+              <!-- part 3 -->
+              <p class="notapplied font-medium">Not Applied</p>
+              <p class="font-extralight">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+
+              <div class="">
+                <button class="interview-btn text-green-400 py-3 px-3 gap-2">
+                  interview
+                </button>
+                <button
+                  class="rejected-btn border-red-400 text-red-400 py-3 px-3"
+                >
+                  Rejected
+                </button>
+              </div>
+            </div>
+            <!-- main card 2 -->
+            <div>
+              <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          </div>
+        </section>
+
+        <section id="TechCorpcard">
+          <!-- card 8 -->
+          <div class="card flex justify-between p-5">
+            <!-- main card 1 -->
+            <div class="space-y-6">
+              <!-- part 1 -->
+              <div>
+                <p class="mobile-corp font-extralight">TechCorp Industries</p>
+                <p class="mobile-resct font-extralight">
+                  React Native Developer
+                </p>
+              </div>
+              <!-- part 2 -->
+              <div class="flex">
+                <p class="remotelement font-extralight">Remote</p>
+                <p class="fullelement font-extralight">•Full-time</p>
+                <p class="numberelementA font-extralight">•$130,000</p>
+                <p class="numberelementB font-extralight">-$175,000</p>
+              </div>
+              <!-- part 3 -->
+              <p class="notapplied font-medium">Not Applied</p>
+              <p class="font-extralight">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
+
+              <div class="">
+                <button class="interview-btn text-green-400 py-3 px-3 gap-2">
+                  interview
+                </button>
+                <button
+                  class="rejected-btn border-red-400 text-red-400 py-3 px-3"
+                >
+                  Rejected
+                </button>
+              </div>
+            </div>
+            <!-- main card 2 -->
+            <div>
+              <button><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>   
+
