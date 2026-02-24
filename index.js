@@ -39,6 +39,7 @@ function toggles(id){
 
    const seleceted = document.getElementById(id)
      currentstatus = id
+     console.log(currentstatus);
 
         // adding blue current button
     seleceted.classList.remove('bg-white','text-black')
@@ -51,7 +52,7 @@ function toggles(id){
     } else if(id == "all-filter-btn"){
         allcardsection.classList.remove('hidden')
         filterSection.classList.add('hidden')
-    } else if(id == 'rejectedFilterBtn'){
+    } else if(id == 'rejected-filter-btn'){
         allcardsection.classList.add('hidden')
         filterSection.classList.remove('hidden')
         renderrejected()
@@ -62,9 +63,10 @@ function toggles(id){
 maincontiner.addEventListener('click',function(event){
  
     console.log(event.target.classList.contains('interview-btn'));
+
             //  interview btn 
     if (event.target.classList.contains('interview-btn')){
-
+ console.log('interview');
     const parentnode= event.target.parentNode.parentNode 
     
 
@@ -92,19 +94,21 @@ maincontiner.addEventListener('click',function(event){
     }
    
 
-    const mobileExist = interviewList .find(i => i.mobileCorp == cardinfo1.mobileCorp)
+    const mobileExist = interviewList .find(item=> item.mobileCorp == cardinfo1.mobileCorp)
     
     if( !mobileExist){
-        interviewList .push(cardinfo1)
+        interviewList.push(cardinfo1)
         
     }
-    rejectedList =rejectedList.filter(i => i.mobileCorp != cardinfo1.mobileCorp)
+    rejectedList =rejectedList.filter(item=> item.mobileCorp != cardinfo1.mobileCorp)
 
     
 
     if(currentstatus =="rejected-filter-btn"){
+        console.log(currentstatus);
        renderrejected()
      }
+
      calculatercount()
 
        } 
@@ -113,7 +117,7 @@ maincontiner.addEventListener('click',function(event){
         else if (event.target.classList.contains('rejected-btn')){
 
     const parentnode= event.target.parentNode.parentNode 
-    
+    console.log(parentnode);
 
     const mobileCorp= parentnode.querySelector(`.mobile-corp`).innerText
     const mobileResct= parentnode.querySelector(`.mobile-resct`).innerText
@@ -139,22 +143,27 @@ maincontiner.addEventListener('click',function(event){
     }
    
 
-    const mobileExist = rejectedList .find(i => i.mobileCorp == cardinfo1.mobileCorp)
+    const mobileExist = rejectedList .find(item => item.mobileCorp ==cardinfo1.mobileCorp)
     
     if(!mobileExist){
         rejectedList.push(cardinfo1)
+
         
     }
+    console.log(rejectedList);
 
-     interviewList = interviewList.filter(i => i.mobileCorp != cardinfo1.mobileCorp)
+     interviewList = interviewList.filter(item => item.mobileCorp !=cardinfo1.mobileCorp)
+
      if(currentstatus =="interview-filter-btn"){
        render()
      }
-    
+    console.log(currentstatus);
 
     calculatercount()
 
        } 
+
+   
        
 })
        
@@ -174,29 +183,38 @@ function render (){
         div.className ='card flex justify-between p-5'
         div.innerHTML = `
          <div class="space-y-6">
-                <!-- part 1 -->
-                <div>
-                    <p class="mobile-corp font-extralight">${ineterviwe.mobileCorp}</p>
+              <!-- part 1 -->
+              <div>
+                <p class="mobile-corp font-extralight">${ineterviwe.mobileCorp}</p>
+                <p class="mobile-resct font-extralight">
+                  React Native Developer
+                </p>
+              </div>
+              <!-- part 2 -->
+              <div class="flex">
+                <p class="remotelement font-extralight">Remote</p>
+                <p class="fullelement font-extralight">•Full-time</p>
+                <p class="numberelementA font-extralight">•$130,000</p>
+                <p class="numberelementB font-extralight">-$175,000</p>
+              </div>
+              <!-- part 3 -->
+              <p class="notapplied font-medium">${ineterviwe.notapplied }</p>
+              <p class="font-extralight">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
 
-                    <p class="mobile-resct font-extralight">React Native Developer</p>
-                </div>
-                     <!-- part 2 -->
-                <div class="flex">
-                    <p class="font-extralight">Remote</p>
-                    <p class="font-extralight">•Full-time</p> 
-                    <p class="font-extralight">•$130,000</p>
-                    <p class="font-extralight">-$175,000</p>
-
-                </div>
-                <!-- part 3 -->
-                 <p class="font-medium">${ineterviwe.notApplied}</p>
-                 <p class="font-extralight">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                 
-                 <div class="">
-                   <button id="WebFlow-interview-btn" class="  text-green-400 py-3 px-3 gap-2">interview</button>
-                   <button id="WebFlow-rejected-btn" class=" border-red-400 text-red-400 py-3 px-3">Rejected</button>
-                 </div>
-            </div> 
+              <div class="">
+                <button class="interview-btn text-green-400 py-3 px-3 gap-2">
+                  interview
+                </button>
+                <button
+                  class="rejected-btn border-red-400 text-red-400 py-3 px-3"
+                >
+                  Rejected
+                </button>
+              </div>
+            </div>
         `
        filterSection.appendChild(div) 
 
@@ -208,37 +226,46 @@ function render (){
         // rejectedList function
 function renderrejected (){
     filterSection.innerHTML =''
-
+  console.log(rejectedList);
     for ( let rejected of rejectedList){
         console.log(rejected);
 
         let div= document.createElement ('div')
         div.className ='card flex justify-between p-5'
         div.innerHTML = `
-         <div class="space-y-6">
-                <!-- part 1 -->
-                <div>
-                    <p class="mobile-corp font-extralight">${rejected.mobileCorp}</p>
+        <div class="space-y-6">
+              <!-- part 1 -->
+              <div>
+                <p class="mobile-corp font-extralight">${rejected.mobileCorp}</p>
+                <p class="mobile-resct font-extralight">
+                  React Native Developer
+                </p>
+              </div>
+              <!-- part 2 -->
+              <div class="flex">
+                <p class="remotelement font-extralight">Remote</p>
+                <p class="fullelement font-extralight">•Full-time</p>
+                <p class="numberelementA font-extralight">•$130,000</p>
+                <p class="numberelementB font-extralight">-$175,000</p>
+              </div>
+              <!-- part 3 -->
+              <p class="notapplied font-medium">${rejected.notapplied }</p>
+              <p class="font-extralight">
+                Build cross-platform mobile applications using React Native.
+                Work on products used by millions of users worldwide.
+              </p>
 
-                    <p class="mobile-resct font-extralight">React Native Developer</p>
-                </div>
-                     <!-- part 2 -->
-                <div class="flex">
-                    <p class="font-extralight">Remote</p>
-                    <p class="font-extralight">•Full-time</p> 
-                    <p class="font-extralight">•$130,000</p>
-                    <p class="font-extralight">-$175,000</p>
-
-                </div>
-                <!-- part 3 -->
-                 <p class="font-medium">${rejected.notApplied}</p>
-                 <p class="font-extralight">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                 
-                 <div class="">
-                   <button id="WebFlow-interview-btn" class="  text-green-400 py-3 px-3 gap-2">interview</button>
-                   <button id="WebFlow-rejected-btn" class=" border-red-400 text-red-400 py-3 px-3">Rejected</button>
-                 </div>
-            </div> 
+              <div class="">
+                <button class="interview-btn text-green-400 py-3 px-3 gap-2">
+                  interview
+                </button>
+                <button
+                  class="rejected-btn border-red-400 text-red-400 py-3 px-3"
+                >
+                  Rejected
+                </button>
+              </div>
+            </div>
         `
        filterSection.appendChild(div) 
 
