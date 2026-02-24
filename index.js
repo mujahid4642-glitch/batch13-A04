@@ -150,7 +150,7 @@ maincontiner.addEventListener('click',function(event){
 
         
     }
-    console.log(rejectedList);
+    
 
      interviewList = interviewList.filter(item => item.mobileCorp !=cardinfo1.mobileCorp)
 
