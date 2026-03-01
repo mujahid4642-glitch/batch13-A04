@@ -97,7 +97,7 @@ maincontiner.addEventListener('click',function(event){
     const mobileExist = interviewList .find(item=> item.mobileCorp == cardinfo1.mobileCorp)
     
     if( !mobileExist){
-        interviewList.push(cardinfo1)
+        interviewList.push(cardinfo1)  
         
     }
     rejectedList =rejectedList.filter(item=> item.mobileCorp != cardinfo1.mobileCorp)
