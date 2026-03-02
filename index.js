@@ -13,6 +13,7 @@ const interviewFilterBtn = document.getElementById('interview-filter-btn')
 const rejectedFilterBtn = document.getElementById('rejected-filter-btn')
 
 
+
 const allcardsection = document.getElementById('allcard')
 const maincontiner=document.querySelector('main')
 const filterSection = document.getElementById('filter-section')
@@ -27,7 +28,7 @@ function calculatercount(){
 calculatercount()
 
 
-
+const emptystate=document.getElementById('empty-state')
 function toggles(id){
    allFilterBtn.classList.remove('bg-blue-500' ,'text-white') 
    interviewFilterBtn.classList.remove('bg-blue-500','text-white') 
@@ -35,8 +36,9 @@ function toggles(id){
 
    allFilterBtn.classList.remove('bg-white' ,'text-black') 
    interviewFilterBtn.classList.remove('bg-white','text-black') 
-   rejectedFilterBtn.classList.remove('bg-white','text-black') 
-
+   rejectedFilterBtn.classList.remove('bg-white','text-black')
+    
+   emptystate.classList.add('hidden')
    const seleceted = document.getElementById(id)
      currentstatus = id
      console.log(currentstatus);
@@ -48,13 +50,24 @@ function toggles(id){
     if(id == 'interview-filter-btn'){
         allcardsection.classList.add('hidden')
         filterSection.classList.remove('hidden')
+        if(interviewList.length<=0){
+         emptystate.classList.remove('hidden')
+        }
         render()
+        
     } else if(id == "all-filter-btn"){
         allcardsection.classList.remove('hidden')
         filterSection.classList.add('hidden')
+        if(allcardsection.children.length<=0){
+          emptystate.classList.remove('hidden')
+        }
+       
     } else if(id == 'rejected-filter-btn'){
         allcardsection.classList.add('hidden')
         filterSection.classList.remove('hidden')
+         if(rejectedList.length<=0){
+         emptystate.classList.remove('hidden')
+        }
         renderrejected()
     }
     

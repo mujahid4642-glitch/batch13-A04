@@ -35,7 +35,7 @@
   </head>
   <body>
     <header class="w-[80%] mx-auto space-y-5">
-      <h1 class="text-3xl font-bold">Job Application Tracker</h1>
+      <h1 class="text-3xl font-bold ">Job Application Tracker</h1>
       <div class="grid grid-cols-3">
         <div>
           <p>total</p>
@@ -452,9 +452,22 @@
             </div>
           </div>
         </section>
+
+        
+            
+
       </section>
+          <!-- empty state -->
+        <div id="empty-state" class="hidden flex-col items-center justify-center py-20 gap-4 text-center">
+          <div class="text-7xl opacity-20"><i class="fa-solid fa-file"></i></div>
+          <p class="font-sans text-lg font-bold text-navy ">no jobs Available</p>
+          <p class="text-sm text-atate-400">Check back soon for new job opportunities</p>
+          
+        </div>     
     </main>
     <script src="./index.js"></script>
-    <script src="./btn.js"></script>
+    <script src="js/btn.js"></script>
+    <script src="js/nojobs.js"></script>
+    
   </body>
 </html>
